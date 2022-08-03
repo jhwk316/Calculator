@@ -3,6 +3,16 @@ let num2 = '';
 let result = '';
 let operator = '';
 
+let newCalculation = function(){
+  num1 = '';
+  num2 = '';
+  result = ''
+  operator = '';
+  display.textContent = '';
+}
+
+
+
 
 //-------------DISPLAYS CHOSEN OPERATOR IN DISPLAY AREA
 const operators = document.querySelectorAll('.operator');
@@ -14,13 +24,7 @@ operators.forEach(op => {
     })
  })
 let clear = document.querySelector('#clear');
-     clear.addEventListener('click', ()=> {
-         this.num1 = '';
-         this.num2 = '';
-         this.result = '';
-        
-         display.textContent = '';
-     });
+     clear.addEventListener('click', newCalculation)
 
     let addNumbers = document.querySelector('#add')
 
@@ -45,7 +49,7 @@ let clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
     equals.addEventListener('click', operate);
 
-    
+
 
 //-------------BASIC OPERATOR FUNCTIONS
 function add() {
@@ -53,7 +57,7 @@ function add() {
     display.textContent = parseFloat(num1) + parseFloat(num2);
     //console.log(parseInt(num1) + parseInt(num2))
     console.log(result)
-
+    
   
 }
 
@@ -65,6 +69,7 @@ function subtract() {
 }
 
 function multiply () {
+
     result = parseFloat(num1) * parseFloat(num2);
     display.textContent = num1 * num2;
     console.log(num1 * num2)
@@ -101,6 +106,13 @@ function operate() {
             divide()
            num2 = '';
             return num1 = result;
-        } 
+        } if (operator == 'C') {
+            
+           return newCalculation()
+        }
        
     }
+
+   
+
+   newCalculation();
