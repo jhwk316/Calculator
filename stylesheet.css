@@ -26,15 +26,22 @@ button {
     width: 40px;
     height: 30px;
     background-color: lime;
-    border-radius: 50%;
-    border-color: silver;
+    text-align: center;
+    border: solid lime;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 25px;
+    border-radius: 50%;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-   
 }
 
-button:active{
+button:active {
     transform: scale(0.9);
+}
+
+.number {
+    background-color: rgb(145, 255, 0);
 }

@@ -102,9 +102,29 @@ function divide() {
    result = parseFloat(num1) / parseFloat(num2);
    display.textContent = num1 / num2;
    console.log(num1 / num2);
-    }    
+    } 
 };
 
+function squareNumber(){
+    result = parseFloat(num1 ** 2)
+    display.textContent = num1 **2;
+    num2 = '';
+    return num1 = result;
+}
+
+function squareRoot(){
+    result = parseFloat(Math.sqrt(num1));
+    display.textContent = parseFloat(Math.sqrt(num1));
+    num2 = '';
+    return num1 = result;
+
+}
+
+let squareBtn = document.querySelector('#square');
+    squareBtn.addEventListener('click', squareNumber);
+
+let squareRootBtn = document.querySelector('#squareRoot');
+    squareRootBtn.addEventListener('click', squareRoot)    
 
 function operate() {
     if (operator == '+'){
@@ -127,7 +147,7 @@ function operate() {
         } if (operator == 'C') {
             
            return newCalculation()
-        }
+        } 
        
     }
 
