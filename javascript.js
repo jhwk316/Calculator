@@ -12,20 +12,38 @@ let newCalculation = function(){
 }
 
 
-
+function back() {
+    display.textContent = display.textContent.slice(0, -1)
+    if (!operator){
+        return num1 = num1.slice(0, -1);
+    } else {
+        return num2 = num2.slice(0, -1);
+    }
+    
+    
+}
 
 //-------------DISPLAYS CHOSEN OPERATOR IN DISPLAY AREA
 const operators = document.querySelectorAll('.operator');
 operators.forEach(op => {
     op.addEventListener('click', event => {
+        
         operator = event.target.textContent;
         display.textContent = operator;
         console.log(operator)
     })
  })
+
+ //------------CLEAR BUTTON--------------------
 let clear = document.querySelector('#clear');
      clear.addEventListener('click', newCalculation)
 
+//-------------BACKSPACE BUTTON--------------------
+let backSpace = document.querySelector('#backSpace');
+    backSpace.addEventListener('click', back)
+
+
+    //-------------------------------------
     let addNumbers = document.querySelector('#add')
 
      //-----------DISPLAYS NUMBERS IN DISPLAY AREA
