@@ -79,4 +79,27 @@ function divide() {
    console.log(num1 / num2)
    let result = parseInt(num1) / parseInt(num2);
     }    
-}
+};
+
+
+function operate() {
+    if (operator == '+'){
+           add();
+            num2 = ''
+            return num1 = result;
+         return num1 = '';
+        } if (operator == '-') {
+            subtract()
+            num2 = '';
+            return num1 = result;
+        } if (operator == 'x') {
+            multiply()
+            num2 = '';
+           return num1 = result;
+        } if (operator == '/') {
+            divide()
+           num2 = '';
+            return num1 = result;
+        } 
+       
+    }
