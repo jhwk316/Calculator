@@ -13,3 +13,28 @@
     font-size: 25px;
     text-align: right;
 }
+
+.buttons {
+    display: grid;
+    grid-template-columns: 25px 25px 25px 25px;
+    grid-template-rows: 25px 25px 25px 25px 25px;
+    grid-gap: 45px;
+    padding:6px;
+}
+
+button {
+    width: 40px;
+    height: 30px;
+    background-color: lime;
+    border-radius: 50%;
+    border-color: silver;
+    padding: 25px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+   
+}
+
+button:active{
+    transform: scale(0.9);
+}
