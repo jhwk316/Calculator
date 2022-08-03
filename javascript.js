@@ -13,14 +13,14 @@ operators.forEach(op => {
         console.log(operator)
     })
  })
-// let clear = document.querySelector('#clear');
-//     clear.addEventListener('click', ()=> {
-//         this.num1 = '';
-//         this.num2 = '';
-//         this.result = '';
+let clear = document.querySelector('#clear');
+     clear.addEventListener('click', ()=> {
+         this.num1 = '';
+         this.num2 = '';
+         this.result = '';
         
-//         display.textContent = '';
-//     });
+         display.textContent = '';
+     });
 
     let addNumbers = document.querySelector('#add')
 
@@ -45,7 +45,9 @@ operators.forEach(op => {
 const equals = document.querySelector('#equals');
     equals.addEventListener('click', operate);
 
-//basic operatator functions
+    
+
+//-------------BASIC OPERATOR FUNCTIONS
 function add() {
     result = parseFloat(num1) + parseFloat(num2);
     display.textContent = parseFloat(num1) + parseFloat(num2);
@@ -76,8 +78,7 @@ function divide() {
     } else {
    result = parseFloat(num1) / parseFloat(num2);
    display.textContent = num1 / num2;
-   console.log(num1 / num2)
-   //let result = parseInt(num1) / parseInt(num2);
+   console.log(num1 / num2);
     }    
 };
 
