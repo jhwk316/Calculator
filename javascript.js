@@ -13,14 +13,14 @@ operators.forEach(op => {
         console.log(operator)
     })
  })
-let clear = document.querySelector('#clear');
-    clear.addEventListener('click', ()=> {
-        this.num1 = '';
-        this.num2 = '';
-        this.result = '';
+// let clear = document.querySelector('#clear');
+//     clear.addEventListener('click', ()=> {
+//         this.num1 = '';
+//         this.num2 = '';
+//         this.result = '';
         
-        display.textContent = '';
-    });
+//         display.textContent = '';
+//     });
 
     let addNumbers = document.querySelector('#add')
 
@@ -32,12 +32,12 @@ let clear = document.querySelector('#clear');
                 num1 += event.target.textContent;
                 display.textContent = num1;
                 console.log(num1);
-                return parseInt(num1);
+                return parseFloat(num1);
             } else {
                 num2 += event.target.textContent;
                 display.textContent = num2;
                 console.log(num2)
-                return parseInt(num2);
+                return parseFloat(num2);
             }
         });
     });
@@ -47,8 +47,8 @@ const equals = document.querySelector('#equals');
 
 //basic operatator functions
 function add() {
-    result = parseInt(num1) + parseInt(num2);
-    display.textContent = parseInt(num1) + parseInt(num2);
+    result = parseFloat(num1) + parseFloat(num2);
+    display.textContent = parseFloat(num1) + parseFloat(num2);
     //console.log(parseInt(num1) + parseInt(num2))
     console.log(result)
 
@@ -56,14 +56,14 @@ function add() {
 }
 
 function subtract() {
-    result = parseInt(num1) - parseInt(num2);
+    result = parseFloat(num1) - parseFloat(num2);
     display.textContent = num1 - num2;
     console.log(num1 - num2)
     
 }
 
 function multiply () {
-    result = parseInt(num1) * parseInt(num2);
+    result = parseFloat(num1) * parseFloat(num2);
     display.textContent = num1 * num2;
     console.log(num1 * num2)
    
@@ -74,10 +74,10 @@ function divide() {
        display.textContent = 'Cannot divide by 0';
        return "Cannot divide by 0"
     } else {
-   
+   result = parseFloat(num1) / parseFloat(num2);
    display.textContent = num1 / num2;
    console.log(num1 / num2)
-   let result = parseInt(num1) / parseInt(num2);
+   //let result = parseInt(num1) / parseInt(num2);
     }    
 };
 
