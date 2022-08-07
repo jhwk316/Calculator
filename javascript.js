@@ -1,7 +1,8 @@
-let num1 = '';
-let num2 = '';
-let result = '';
+let num1 = [];
+let num2 = [];
+let result = [];
 let operator = '';
+
 
 let newCalculation = function(){
   num1 = '';
@@ -23,16 +24,39 @@ function back() {
     
 }
 
+
+
+ //-----------DISPLAYS NUMBERS IN DISPLAY AREA
+const numbers = document.querySelectorAll('.number');
+numbers.forEach(number => {
+   number.addEventListener('click', event => {
+       if (operator === '') { 
+           num1 += event.target.textContent;
+           display.textContent = num1;
+           console.log(num1);
+           return parseFloat(num1);
+           
+       }   else {
+           num2 += event.target.textContent;
+           display.textContent = num2;
+           console.log(num2)
+           return parseFloat(num2);
+       } 
+   });
+});
+
 //-------------DISPLAYS CHOSEN OPERATOR IN DISPLAY AREA
 const operators = document.querySelectorAll('.operator');
+   
 operators.forEach(op => {
     op.addEventListener('click', event => {
-        
+        calculate();
         operator = event.target.textContent;
         display.textContent = operator;
-        console.log(operator)
-    })
- })
+        console.log(operator);
+    }) 
+        })
+ 
 
  //------------CLEAR BUTTON--------------------
 let clear = document.querySelector('#clear');
@@ -43,114 +67,99 @@ let backSpace = document.querySelector('#backSpace');
     backSpace.addEventListener('click', back)
 
 
-    //-------------------------------------
-    let addNumbers = document.querySelector('#add')
+let squareBtn = document.querySelector('#square');
+    squareBtn.addEventListener('click', squareNumber);
 
-     //-----------DISPLAYS NUMBERS IN DISPLAY AREA
-     const numbers = document.querySelectorAll('.number');
-     numbers.forEach(number => {
-        number.addEventListener('click', event => {
-            if (operator === '') { 
-                num1 += event.target.textContent;
-                display.textContent = num1;
-                console.log(num1);
-                return parseFloat(num1);
-            } else {
-                num2 += event.target.textContent;
-                display.textContent = num2;
-                console.log(num2)
-                return parseFloat(num2);
-            }
-        });
-    });
+let squareRootBtn = document.querySelector('#squareRoot');
+    squareRootBtn.addEventListener('click', squareRoot)   
 
-const equals = document.querySelector('#equals');
-    equals.addEventListener('click', operate);
+let equals = document.querySelector('#equals');
+    equals.addEventListener('click', calculate);
 
 
-
-//-------------BASIC OPERATOR FUNCTIONS
+    //-------------BASIC OPERATOR FUNCTIONS
 function add() {
-    result = parseFloat(num1) + parseFloat(num2);
-    display.textContent = parseFloat(num1) + parseFloat(num2);
-    //console.log(parseInt(num1) + parseInt(num2))
-    console.log(result)
     
-  
-}
+    result = parseFloat(num1) + parseFloat(num2);
+    display.textContent = result.toFixed(10);
+    console.log(result);
+    num2 = '';
+    num1 = result;
+}; 
+
+
 
 function subtract() {
     result = parseFloat(num1) - parseFloat(num2);
-    display.textContent = num1 - num2;
-    console.log(num1 - num2)
-    
-}
+    display.textContent = result.toFixed(10);
+    console.log(result);
+    num2 = '';
+    num1 = result;
+            
+};
 
 function multiply () {
-
     result = parseFloat(num1) * parseFloat(num2);
-    display.textContent = num1 * num2;
-    console.log(num1 * num2)
+    display.textContent = result.toFixed(10)
+    console.log(result)
+    num2 = '';
+    num1 = result
    
 }
 
 function divide() {
     if (num2 == 0) {
-       display.textContent = 'Cannot divide by 0';
+       display.textContent = 'Cannot divide by 0 dumbass';
        return "Cannot divide by 0"
     } else {
    result = parseFloat(num1) / parseFloat(num2);
-   display.textContent = num1 / num2;
-   console.log(num1 / num2);
+   display.textContent = result.toFixed(10)
+   console.log(result);
+   num2 = '';
+   num1 = result
     } 
 };
 
+
 function squareNumber(){
     result = parseFloat(num1 ** 2)
-    display.textContent = num1 **2;
-    num2 = '';
+    display.textContent = result
     return num1 = result;
 }
 
 function squareRoot(){
     result = parseFloat(Math.sqrt(num1));
-    display.textContent = parseFloat(Math.sqrt(num1));
+    display.textContent = result;
     num2 = '';
     return num1 = result;
 
 }
 
-let squareBtn = document.querySelector('#square');
-    squareBtn.addEventListener('click', squareNumber);
 
-let squareRootBtn = document.querySelector('#squareRoot');
-    squareRootBtn.addEventListener('click', squareRoot)    
 
-function operate() {
+function calculate() {
     if (operator == '+'){
-           add();
-            num2 = ''
-            return num1 = result;
-         return num1 = '';
+           return add();
+         
         } if (operator == '-') {
             subtract()
-            num2 = '';
-            return num1 = result;
+            
         } if (operator == 'x') {
             multiply()
-            num2 = '';
+            
            return num1 = result;
         } if (operator == '/') {
             divide()
-           num2 = '';
+           
             return num1 = result;
         } if (operator == 'C') {
             
            return newCalculation()
+        } if (num1 === result) {
+            return null
         } 
        
-    }
+    };
 
-   
+    
 
-   newCalculation();
