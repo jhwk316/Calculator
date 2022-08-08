@@ -47,10 +47,13 @@ const operators = document.querySelectorAll('.operator');
    
 operators.forEach(op => {
     op.addEventListener('click', event => {
+        
         calculate();
+        
         operator = event.target.textContent;
         display.textContent = operator;
         console.log(operator);
+        
     }); 
         });
  
@@ -73,18 +76,34 @@ let squareRootBtn = document.querySelector('#squareRoot');
 let equals = document.querySelector('#equals');
     equals.addEventListener('click', calculate);
 
+let negative = document.querySelector('#negative')
+        negative.addEventListener('click', () => {
+                if(!operator) {
+                    num1 = num1 * -1;
+                    display.textContent =  num1;
+                } else  {
+                    num2 = num2 * -1;
+                    display.textContent = num2;
+                }
+        })
+
 
     //-------------BASIC OPERATOR FUNCTIONS
 function add() {
     result = parseFloat(num1) + parseFloat(num2);
     console.log(result);
-    num2 = '';
-    num1 = result;
+    operator = ''
+    num1 = result
+    num2 = ''
+   
+    
     if(num1 % 1 != 0) {
     display.textContent = parseFloat(result.toFixed(13));
     } else {
         display.textContent = result;
     }
+     
+    
     
 }; 
 
@@ -94,6 +113,7 @@ function subtract() {
     result = parseFloat(num1) - parseFloat(num2);
     console.log(result);
     num2 = '';
+    operator = '';
     num1 = result;
     if(num1 % 1 != 0) {
         display.textContent = parseFloat(result.toFixed(13));
@@ -106,6 +126,7 @@ function multiply () {
     result = parseFloat(num1) * parseFloat(num2);
     console.log(result);
     num2 = '';
+    operator = '';
     num1 = result;
     if(num1 % 1 != 0) {
         display.textContent = parseFloat(result.toFixed(13));
@@ -119,6 +140,7 @@ function divide() {
         result = parseFloat(num1) / parseFloat(num2);
         console.log(result);
         num2 = '';
+        operator = '';
         num1 = result;
         if(num1 % 1 != 0) {
             display.textContent = parseFloat(result.toFixed(13));
@@ -147,7 +169,9 @@ function squareRoot(){
 
 function calculate() {
     if (operator == '+'){
-           return add();
+            add();
+             
+        
          
         } if (operator == '-') {
             subtract();
