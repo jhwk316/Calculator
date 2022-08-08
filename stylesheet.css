@@ -86,28 +86,23 @@ button:active {
 @media only screen and (max-width: 500px) {
     body {
         display: block;
+        
         margin-top: 2px;
-       
     }
     .calculator {
         width:auto;
         height: 100vh;
-    
-        
     }
 
     #display {
         height: 125px;
         font-size: 35px;
-      
     }
 
     .buttons {
       grid-column-gap: 70px;
       grid-row-gap:90px;
       margin-top: 25px;
-    
-        
     }
 
     button {
@@ -119,6 +114,7 @@ button:active {
 
     #equals {
         width: 90vw;
+        height: 70px;
     }
 }
 
