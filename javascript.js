@@ -4,16 +4,13 @@ let result = [];
 let operator = '';
 
 
-
-
 let newCalculation = function(){
   num1 = '';
   num2 = '';
   result = ''
   operator = '';
   display.textContent = '';
-}
-
+};
 
 function back() {
     display.textContent = display.textContent.slice(0, -1)
@@ -21,10 +18,8 @@ function back() {
         return num1 = num1.slice(0, -1);
     } else {
         return num2 = num2.slice(0, -1);
-    }
-    
-    
-}
+    };
+};
 
 
 
@@ -56,24 +51,24 @@ operators.forEach(op => {
         operator = event.target.textContent;
         display.textContent = operator;
         console.log(operator);
-    }) 
-        })
+    }); 
+        });
  
 
  //------------CLEAR BUTTON--------------------
 let clear = document.querySelector('#clear');
-     clear.addEventListener('click', newCalculation)
+     clear.addEventListener('click', newCalculation);
 
 //-------------BACKSPACE BUTTON--------------------
 let backSpace = document.querySelector('#backSpace');
-    backSpace.addEventListener('click', back)
+    backSpace.addEventListener('click', back);
 
 
 let squareBtn = document.querySelector('#square');
     squareBtn.addEventListener('click', squareNumber);
 
 let squareRootBtn = document.querySelector('#squareRoot');
-    squareRootBtn.addEventListener('click', squareRoot)   
+    squareRootBtn.addEventListener('click', squareRoot);   
 
 let equals = document.querySelector('#equals');
     equals.addEventListener('click', calculate);
@@ -84,11 +79,11 @@ function add() {
     result = parseFloat(num1) + parseFloat(num2);
     console.log(result);
     num2 = '';
-    num1 = result
+    num1 = result;
     if(num1 % 1 != 0) {
-    display.textContent = parseFloat(result.toFixed(10));
+    display.textContent = parseFloat(result.toFixed(13));
     } else {
-        display.textContent = result
+        display.textContent = result;
     }
     
 }; 
@@ -101,9 +96,9 @@ function subtract() {
     num2 = '';
     num1 = result;
     if(num1 % 1 != 0) {
-        display.textContent = parseFloat(result.toFixed(10));
+        display.textContent = parseFloat(result.toFixed(13));
         } else {
-            display.textContent = result
+            display.textContent = result;
         } 
 };
 
@@ -113,9 +108,9 @@ function multiply () {
     num2 = '';
     num1 = result;
     if(num1 % 1 != 0) {
-        display.textContent = parseFloat(result.toFixed(10));
+        display.textContent = parseFloat(result.toFixed(13));
         } else {
-            display.textContent = result
+            display.textContent = result;
         } 
 }
 
@@ -126,9 +121,9 @@ function divide() {
         num2 = '';
         num1 = result;
         if(num1 % 1 != 0) {
-            display.textContent = parseFloat(result.toFixed(10));
+            display.textContent = parseFloat(result.toFixed(13));
             } else {
-                display.textContent = result
+                display.textContent = result;
             } 
     
 };
@@ -136,7 +131,7 @@ function divide() {
 
 function squareNumber(){
     result = parseFloat(num1 ** 2)
-    display.textContent = result
+    display.textContent = result;
     return num1 = result;
 }
 
@@ -155,25 +150,22 @@ function calculate() {
            return add();
          
         } if (operator == '-') {
-            subtract()
+            subtract();
             
         } if (operator == 'x') {
-            multiply()
+            multiply();
             
           
         } if (operator == '/') {
           if (num2 == 0){
             display.textContent = 'A Black Hole Has Been Created'
           }  else {
-            divide()  
+            divide();  
           }
             
         } if (operator == 'C') {
-            
-           return newCalculation()
-        } if (num1 === result) {
-            return null
-        } 
+           return newCalculation();
+        }; 
        
     };
 
