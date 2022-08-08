@@ -4,6 +4,8 @@ let result = [];
 let operator = '';
 
 
+
+
 let newCalculation = function(){
   num1 = '';
   num2 = '';
@@ -79,45 +81,56 @@ let equals = document.querySelector('#equals');
 
     //-------------BASIC OPERATOR FUNCTIONS
 function add() {
-    
     result = parseFloat(num1) + parseFloat(num2);
-    display.textContent = result.toFixed(10);
     console.log(result);
     num2 = '';
-    num1 = result;
+    num1 = result
+    if(num1 % 1 != 0) {
+    display.textContent = parseFloat(result.toFixed(10));
+    } else {
+        display.textContent = result
+    }
+    
 }; 
 
 
 
 function subtract() {
     result = parseFloat(num1) - parseFloat(num2);
-    display.textContent = result.toFixed(10);
     console.log(result);
     num2 = '';
     num1 = result;
-            
+    if(num1 % 1 != 0) {
+        display.textContent = parseFloat(result.toFixed(10));
+        } else {
+            display.textContent = result
+        } 
 };
 
 function multiply () {
     result = parseFloat(num1) * parseFloat(num2);
-    display.textContent = result.toFixed(10)
-    console.log(result)
+    console.log(result);
     num2 = '';
-    num1 = result
-   
+    num1 = result;
+    if(num1 % 1 != 0) {
+        display.textContent = parseFloat(result.toFixed(10));
+        } else {
+            display.textContent = result
+        } 
 }
 
 function divide() {
-    if (num2 == 0) {
-       display.textContent = 'Cannot divide by 0 dumbass';
-       return "Cannot divide by 0"
-    } else {
-   result = parseFloat(num1) / parseFloat(num2);
-   display.textContent = result.toFixed(10)
-   console.log(result);
-   num2 = '';
-   num1 = result
-    } 
+
+        result = parseFloat(num1) / parseFloat(num2);
+        console.log(result);
+        num2 = '';
+        num1 = result;
+        if(num1 % 1 != 0) {
+            display.textContent = parseFloat(result.toFixed(10));
+            } else {
+                display.textContent = result
+            } 
+    
 };
 
 
@@ -147,11 +160,14 @@ function calculate() {
         } if (operator == 'x') {
             multiply()
             
-           return num1 = result;
+          
         } if (operator == '/') {
-            divide()
-           
-            return num1 = result;
+          if (num2 == 0){
+            display.textContent = 'A Black Hole Has Been Created'
+          }  else {
+            divide()  
+          }
+            
         } if (operator == 'C') {
             
            return newCalculation()
